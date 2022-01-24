@@ -5,7 +5,8 @@ const bcrypt = require('bcrypt');
 module.exports = {
   create,
   login,
-  checkToken
+  checkToken,
+  getAll,
 };
 
 function checkToken(req, res) {
@@ -37,6 +38,11 @@ async function create(req, res) {
   } catch (e) {
     res.status(400).json(e);
   }
+}
+
+async function getAll(req, res){
+  const users = await User.find().sort('-createdAt');
+  res.json(users);
 }
 
 

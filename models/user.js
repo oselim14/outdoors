@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const bcrypt = require('bcrypt');
+const { boolean } = require('check-types');
 
 const SALT_ROUNDS = 6;
 
@@ -17,6 +18,24 @@ const userSchema = new Schema({
     type: String,
     trim: true,
     minLength: 3,
+    required: true
+  }, 
+  hiking: {
+    type: String,
+    required: false,
+    enum: ['Share', 'Learn']
+  },
+  camping: {
+    type: String,
+    required: false,
+    enum: ['Share', 'Learn']
+  },
+  about: {
+    type: String,
+    required: true,
+  },
+  profileImage: {
+    type: String,
     required: true
   }
 }, {
