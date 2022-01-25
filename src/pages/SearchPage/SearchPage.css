@@ -1,0 +1,44 @@
+*{
+    background-color: white;
+}
+
+.user-cards{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #AFC97E;
+    border-radius: 12px;
+    margin: 5px;
+    padding: 5px;
+    border: 2px solid #D4E6B5;
+}
+
+.user-links{
+    display: flex;
+    flex-direction: row;
+    background-color: #AFC97E;
+}
+
+.user-links > h1 {
+    background-color: #AFC97E;
+    margin: 15px;
+    text-decoration: none;
+}
+
+.profileImage {
+    height: 100px;
+    width: fit-content;
+    border-radius: 12px;
+    border: 5px solid #FFDF64;
+}
+
+.hiking-camping {
+    display: flex;
+    flex-direction: row;
+    background-color: #AFC97E;
+}
+
+.hiking-camping > h3 {
+    background-color: #AFC97E;
+    padding: 15px;
+}

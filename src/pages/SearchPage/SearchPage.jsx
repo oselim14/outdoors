@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { checkToken } from '../../utilities/users-service';
 import * as userAPI from '../../utilities/users-api';
 import { Link } from 'react-router-dom';
+import './SearchPage.css';
 
 export default function SearchPage(props) {
 
@@ -23,13 +24,17 @@ export default function SearchPage(props) {
       <h1>Make a Friend</h1>
       <div>
         {otherUsers.map((u, idx) =>
-          <div>
+          <div className='user-cards'>
             <Link to={`/users/${idx}`}>
-              <div>
+              <div className='user-links'>
+                <img src={u.profileImage} alt={u.name} width='100px' className='profileImage'/>
                 <h1>{u.name}</h1>
-                <img src={u.profileImage} alt={u.name} width='100px' />
               </div>
             </Link>
+              <div className='hiking-camping'>
+                <h3>I want to {u.hiking.toUpperCase()} about hiking.</h3>
+                <h3>I want to {u.camping.toUpperCase()} about camping.</h3>
+              </div>
           </div>
         )}
       </div>
