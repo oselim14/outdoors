@@ -3,6 +3,7 @@ import { checkToken } from '../../utilities/users-service';
 import * as userAPI from '../../utilities/users-api';
 import { Link } from 'react-router-dom';
 import './SearchPage.css';
+import Talk from 'talkjs';
 
 export default function SearchPage(props) {
 
