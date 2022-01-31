@@ -13,4 +13,8 @@ router.get('/check-token', ensureLoggedIn, usersCtrl.checkToken);
 
 router.get('/all', usersCtrl.getAll);
 
+router.get('/profile/:id', usersCtrl.getSelf);
+
+router.put('/:id', ensureLoggedIn, usersCtrl.update);
+
 module.exports = router;

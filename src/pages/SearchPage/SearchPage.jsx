@@ -14,7 +14,6 @@ export default function SearchPage(props) {
     async function getAllUsers() {
       const users = await userAPI.getAll();
       setOtherUsers(users);
-      console.log(users);
     }
     getAllUsers();
   }, []);
@@ -26,8 +25,8 @@ export default function SearchPage(props) {
       <div>
         {otherUsers.map((u, idx) =>
           <div className='user-cards'>
-            <Link to={`/users/${idx}`}>
-              <div className='user-links'>
+            <Link to={`/profile/${u._id}`}>
+              <div className='user-links' key={idx}>
                 <img src={u.profileImage} alt={u.name} width='100px' className='profileImage'/>
                 <h1>{u.name}</h1>
               </div>

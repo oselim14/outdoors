@@ -7,6 +7,7 @@ import MessagesPage from '../MessagesPage/MessagesPage';
 import SearchPage from '../SearchPage/SearchPage';
 import NavBar from '../../components/NavBar/NavBar';
 import HomePage from '../HomePage/HomePage';
+import ProfilePage from '../ProfilePage/ProfilePage';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -20,6 +21,7 @@ export default function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/messages" element={<MessagesPage />} />
             <Route path="/search" element={<SearchPage />} user={user} setUser={setUser} />
+            <Route path='/profile/:id' element={<ProfilePage />} user={user} setUser={setUser}/>
           </Routes>
         </>
         :

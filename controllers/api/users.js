@@ -7,6 +7,8 @@ module.exports = {
   login,
   checkToken,
   getAll,
+  getSelf,
+  update,
 };
 
 function checkToken(req, res) {
@@ -43,6 +45,16 @@ async function create(req, res) {
 async function getAll(req, res){
   const users = await User.find().sort('-createdAt');
   res.json(users);
+}
+
+async function getSelf(req, res){
+  const users = await User.find({'user._id': req.user.id});
+  res.json(users);
+}
+
+async function update(req, res){
+  const user = await User.findByIdAndUpdate(req.params.id, req.body, {new: true});
+  res.json(user);
 }
 
 

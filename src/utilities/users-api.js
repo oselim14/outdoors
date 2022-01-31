@@ -18,6 +18,14 @@ export function getAll(){
   return sendRequest(`${BASE_URL}/all`)
 }
 
+export function getSelf(user) {
+  return sendRequest(`${BASE_URL}/profile/${user}`)
+}
+
+export function update(userId, info) {
+  return sendRequest(`${BASE_URL}/${userId}`, 'PUT', info);
+}
+
 /*--- Helper Functions ---*/
 
 async function sendRequest(url, method = 'GET', payload = null) {
