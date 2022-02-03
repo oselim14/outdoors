@@ -1,29 +1,22 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import * as userAPI from '../../utilities/users-api';
 import ProfileCard from '../../components/ProfileCard/ProfileCard';
 
 export default function ProfilePage({ user, setUser }) {
 
-    const [self, getSelf] = useState([]);
-    const [showForm, setShowForm] = useState(false);
     const [userInfo, setUserInfo] = useState({
-        name: self.name,
-        email: self.email,
-        profileImage: self.profileImage,
-        hiking: self.hiking,
-        camping: self.camping,
-        about: self.about
+        name: user.name,
+        email: user.email,
+        profileImage: user.profileImage,
+        hiking: user.hiking,
+        camping: user.camping,
+        about: user.about
     });
 
-    useEffect(function () {
-        async function getProfile() {
-            const self = await userAPI.getSelf(user);
-            getSelf(self);
-            console.log(self);
-        }
-        getProfile();
-    }, []);
+    const [showForm, setShowForm] = useState(false);
+
+
 
     function handleChange(evt) {
         setUserInfo({ ...userInfo, [evt.target.name]: evt.target.value });
@@ -31,23 +24,20 @@ export default function ProfilePage({ user, setUser }) {
 
     async function handleSubmit(evt) {
         evt.preventDefault();
-        const updatedUser = await userAPI.update(self._id, userInfo);
+        const updatedUser = await userAPI.update(user._id, userInfo);
         setUser(updatedUser);
         setShowForm(false);
     }
 
-
-
-
     return (
         <>
             {!showForm ?
-                <ProfileCard self={self} user={user} setShowForm={setShowForm} showForm={showForm}/>
+                <ProfileCard  user={user} setShowForm={setShowForm} showForm={showForm} />
                 :
                 <div className="form-container">
                     <form autoComplete="off" onSubmit={handleSubmit}>
                         <label>Name</label>
-                        <input type="text" name="name" value={userInfo.name} onChange={handleChange} required>{userInfo.name}</input>
+                        <input type="text" name="name" value={userInfo.name} onChange={handleChange} required></input>
                         <label>Email</label>
                         <input type="email" name="email" value={userInfo.email} onChange={handleChange} required />
                         <label>Hiking:</label>
