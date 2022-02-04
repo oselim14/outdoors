@@ -1,0 +1,31 @@
+nav {
+    display: flex;
+    height: 8vh;
+    width: 98vw;
+    max-height: 70px;
+    min-height: 50px;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #283618;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+nav > a{
+    text-decoration: none;
+    color: #f9f7e8;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+@media screen and (min-width: 789px) {
+    .header.sticky{
+        position: fixed;
+        padding: 10px;
+        transition: all 0.4s ease;
+        top: 0;
+        width: 98vw;
+        justify-content: space-around;
+    }
+      
+}
+

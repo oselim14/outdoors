@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import * as userAPI from '../../utilities/users-api';
 import ProfileCard from '../../components/ProfileCard/ProfileCard';
+import './ProfilePage.css'
 
 export default function ProfilePage({ user, setUser }) {
 

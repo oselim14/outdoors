@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import * as usersService from '../../utilities/users-service';
+import './NavBar.css';
 
 export default function NavBar(props) {
 
@@ -9,8 +10,13 @@ export default function NavBar(props) {
     props.setUser(null);
   }
 
+  window.addEventListener('scroll', function(){
+    var header = document.querySelector('.header');
+    header.classList.toggle("sticky", window.scrollY > 22);
+  })
+
   return (
-    <nav>
+    <nav className='header'>
       <Link to="/search">Make a Friend</Link>
       &nbsp; | &nbsp;
       <Link to="/messages">Messages</Link>

@@ -1,0 +1,16 @@
+.form-container{
+    background-color: #FBF9F6;
+    margin-top: 20px;
+}
+
+form > *{
+    background-color: #FBF9F6;
+}
+
+form > button {
+    background-color: #D4E6B5;
+}
+
+form {
+    background-color: #FBF9F6;
+}

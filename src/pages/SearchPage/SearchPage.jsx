@@ -23,16 +23,18 @@ export default function SearchPage(props) {
       <div>
         {otherUsers.map((u, idx) =>
           <div className='user-cards'>
-            <Link to={`/profile/${u._id}`}>
-              <div className='user-links' key={idx}>
+            <Link to={`/profile/${u._id}`} key={idx}>
+              <div className='card-body'>
+              <div className='user-links' >
                 <img src={u.profileImage} alt={u.name} width='100px' className='profileImage'/>
-                <h1>{u.name}</h1>
+                <h1>{u.name.toUpperCase()}</h1>
               </div>
-            </Link>
               <div className='hiking-camping'>
                 <h3>I want to {u.hiking.toUpperCase()} about hiking.</h3>
                 <h3>I want to {u.camping.toUpperCase()} about camping.</h3>
               </div>
+              </div>
+              </Link>
           </div>
         )}
       </div>
